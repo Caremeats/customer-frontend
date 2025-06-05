@@ -1,4 +1,4 @@
-##NOTE
+#NOTE
 
 I mistakenly set the remote origin to the official Laravel repository (laravel/laravel), which caused my project to pull directly from that source. As a result, the contributor list now includes the original Laravel maintainers. This has since been resolved, and it does not affect the functionality or integrity of my project.
 
