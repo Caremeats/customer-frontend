@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Customer Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        /* Custom Modern Styling */
+        :root {
+            --primary-color: #6366f1;
+            --primary-hover: #4f46e5;
+            --secondary-color: #64748b;
+            --success-color: #10b981;
+            --danger-color: #ef4444;
+            --warning-color: #f59e0b;
+            --light-bg: #f8fafc;
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --card-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Main container styling */
+        .main-container {
+            background: var(--light-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            margin: 2rem auto;
+            max-width: 1200px;
+            overflow: hidden;
+        }
+
+        /* Header styling */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+            color: white;
+            padding: 2rem;
+            margin: 0;
+        }
+
+        .page-header h2 {
+            margin: 0;
+            font-weight: 700;
+            font-size: 2rem;
+        }
+
+        .page-header p {
+            margin: 0.5rem 0 0 0;
+            opacity: 0.9;
+        }
+
+        /* Modern card styling */
+        .modern-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            border: none;
+            margin: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .modern-card:hover {
+            box-shadow: var(--card-shadow-hover);
+            transform: translateY(-2px);
+        }
+
+        .modern-card-header {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-bottom: 2px solid var(--primary-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+        }
+
+        .modern-card-header h5 {
+            margin: 0;
+            color: var(--secondary-color);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .modern-card-body {
+            padding: 2rem;
+        }
+
+        /* Form styling */
+        .form-label {
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-control {
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(99, 102, 241, 0.25);
+        }
+
+        .form-control.is-invalid {
+            border-color: var(--danger-color);
+        }
+
+        /* Button styling */
+        .btn-modern {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-modern-primary {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+            color: white;
+
+        }
+
+        .btn-modern-primary:hover {
+            background: linear-gradient(135deg, var(--primary-hover) 0%, #3730a3 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-modern-secondary {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-modern-secondary:hover {
+            background: #475569;
+            transform: translateY(-1px);
+        }
+
+        .btn-modern-danger {
+            background: var(--danger-color);
+            border: 2px solid var(--danger-color);
+            opacity: 1;
+        }
+
+        .btn-modern-danger:hover {
+            background: #dc2626;
+            transform: translateY(-1px);
+        }
+
+        .btn-modern-success {
+            background: var(--success-color);
+            border: 2px solid var(--success-color);
+            opacity: 1;
+        }
+
+
+        .btn-modern-success:hover {
+            background: #6c9ce1;
+            transform: translateY(-1px);
+        }
+
+        /* Table styling */
+        .modern-table {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+
+        .modern-table thead {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #475569 100%);
+        }
+
+        .modern-table thead th {
+            color: #475569;
+            font-weight: 600;
+            padding: 1rem;
+            border: none;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        .modern-table tbody tr {
+            transition: var(--transition);
+        }
+
+        .modern-table tbody tr:hover {
+            background-color: rgba(99, 102, 241, 0.05);
+        }
+
+        .modern-table tbody td {
+            padding: 1rem;
+            vertical-align: middle;
+            border-bottom: 1px solid #e2e8f0;
+            background-color: #f1f5f9;
+        }
+
+        /* Loading */
+        .modern-spinner {
+            width: 3rem;
+            height: 3rem;
+            border: 3px solid #e2e8f0;
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--secondary-color);
+        }
+
+        .empty-state i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        /* Action buttons */
+        .action-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-sm.btn-modern {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .main-container {
+                margin: 1rem;
+                border-radius: 8px;
+            }
+
+            .page-header {
+                padding: 1.5rem;
+            }
+
+            .modern-card {
+                margin: 1rem;
+            }
+
+            .modern-card-body {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Modern Header -->
+        <div class="page-header">
+            <h2><i class="bi bi-people-fill me-2"></i>Customer Management</h2>
+            <p>Manage your customer database with ease</p>
+        </div>
+
+        <!-- Form Section -->
+        <div class="modern-card">
+            <div class="modern-card-header">
+                <h5>
+                    <i class="bi bi-person-plus-fill"></i>
+                    {{ isEditing ? 'Edit Customer' : 'Add New Customer' }}
+                </h5>
+            </div>
+            <div class="modern-card-body">
+                <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="first_name" class="form-label">
+                                    <i class="bi bi-person me-1"></i>First Name *
+                                </label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    [class.is-invalid]="first_name?.invalid && first_name?.touched"
+                                    id="first_name"
+                                    formControlName="first_name"
+                                    placeholder="Enter first name"
+                                    maxlength="255">
+                                <div class="invalid-feedback" *ngIf="first_name?.invalid && first_name?.touched">
+                                    <div *ngIf="first_name?.errors?.['required']">First name is required</div>
+                                    <div *ngIf="first_name?.errors?.['maxlength']">First name cannot exceed 255 characters</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="last_name" class="form-label">
+                                    <i class="bi bi-person me-1"></i>Last Name *
+                                </label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    [class.is-invalid]="last_name?.invalid && last_name?.touched"
+                                    id="last_name"
+                                    formControlName="last_name"
+                                    placeholder="Enter last name"
+                                    maxlength="255">
+                                <div class="invalid-feedback" *ngIf="last_name?.invalid && last_name?.touched">
+                                    <div *ngIf="last_name?.errors?.['required']">Last name is required</div>
+                                    <div *ngIf="last_name?.errors?.['maxlength']">Last name cannot exceed 255 characters</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">
+                                    <i class="bi bi-envelope me-1"></i>Email *
+                                </label>
+                                <input
+                                    type="email"
+                                    class="form-control"
+                                    [class.is-invalid]="email?.invalid && email?.touched"
+                                    id="email"
+                                    formControlName="email"
+                                    placeholder="Enter email address">
+                                <div class="invalid-feedback" *ngIf="email?.invalid && email?.touched">
+                                    <div *ngIf="email?.errors?.['required']">Email is required</div>
+                                    <div *ngIf="email?.errors?.['email']">Please enter a valid email address</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="contact_number" class="form-label">
+                                    <i class="bi bi-telephone me-1"></i>Contact Number *
+                                </label>
+                                <input
+                                    type="tel"
+                                    class="form-control"
+                                    [class.is-invalid]="contact_number?.invalid && contact_number?.touched"
+                                    id="contact_number"
+                                    formControlName="contact_number"
+                                    placeholder="Enter contact number"
+                                    maxlength="15">
+                                <div class="invalid-feedback" *ngIf="contact_number?.invalid && contact_number?.touched">
+                                    <div *ngIf="contact_number?.errors?.['required']">Contact number is required</div>
+                                    <div *ngIf="contact_number?.errors?.['maxlength']">Contact number cannot exceed 15 characters</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button
+                            type="submit"
+                            class="btn btn-modern btn-modern-primary"
+                            [disabled]="customerForm.invalid">
+                            <i class="bi bi-check-circle me-1"></i>
+                            {{ isEditing ? 'Update Customer' : 'Add Customer' }}
+                        </button>
+                        <button
+                            type="button"
+                            class="btn btn-modern btn-modern-secondary"
+                            (click)="resetForm()"
+                            *ngIf="isEditing">
+                            <i class="bi bi-x-circle me-1"></i>
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Customers Table -->
+        <div class="modern-card">
+            <div class="modern-card-header">
+                <h5>
+                    <i class="bi bi-table me-1"></i>
+                    Customers List
+                    <span class="badge bg-primary ms-2" *ngIf="customers.length > 0">{{ customers.length }}</span>
+                </h5>
+            </div>
+            <div class="modern-card-body">
+                <!-- Loading State -->
+                <div *ngIf="loading" class="text-center py-5">
+                    <div class="modern-spinner mx-auto mb-3"></div>
+                    <p class="text-muted">Loading customers...</p>
+                </div>
+
+                <!-- Empty State -->
+                <div *ngIf="!loading && customers.length === 0" class="empty-state">
+                    <i class="bi bi-people"></i>
+                    <h4>No customers found</h4>
+                    <p>Start by adding your first customer using the form above.</p>
+                </div>
+
+                <!-- Customers Table -->
+                <div *ngIf="!loading && customers.length > 0" class="table-responsive">
+                    <table class="table modern-table">
+                        <thead>
+                            <tr>
+                                <th><i class="bi bi-hash me-1"></i>ID</th>
+                                <th><i class="bi bi-person me-1"></i>First Name</th>
+                                <th><i class="bi bi-person me-1"></i>Last Name</th>
+                                <th><i class="bi bi-envelope me-1"></i>Email</th>
+                                <th><i class="bi bi-telephone me-1"></i>Contact</th>
+                                <th><i class="bi bi-calendar me-1"></i>Created</th>
+                                <th><i class="bi bi-gear me-1"></i>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let customer of customers">
+                                <td><strong>{{ customer.id }}</strong></td>
+                                <td>{{ customer.first_name }}</td>
+                                <td>{{ customer.last_name }}</td>
+                                <td>
+                                    <a [href]="'mailto:' + customer.email" class="text-decoration-none">
+                                        {{ customer.email }}
+                                    </a>
+                                </td>
+                                <td>
+                                    <a [href]="'tel:' + customer.contact_number" class="text-decoration-none">
+                                        {{ customer.contact_number }}
+                                    </a>
+                                </td>
+                                <td>
+                                    <small class="text-muted">
+                                        {{ customer.created_at | date:'short' }}
+                                    </small>
+                                </td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button
+                                            type="button"
+                                            class="btn btn-sm btn-modern btn-modern-success"
+                                            (click)="editCustomer(customer)"
+                                            title="Edit Customer">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class="btn btn-sm btn-modern btn-modern-danger"
+                                            (click)="deleteCustomer(customer.id!)"
+                                            title="Delete Customer">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

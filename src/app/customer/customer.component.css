@@ -1,0 +1,32 @@
+.card {
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+  border-radius: 0.5rem;
+}
+
+.card-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.table th, .table td {
+  vertical-align: middle;
+}
+
+.btn-group .btn {
+  min-width: 80px;
+}
+
+form .form-control {
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s;
+}
+
+form .form-control:focus {
+  border-color: #86b7fe;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+  color: #0d6efd;
+}
